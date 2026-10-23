@@ -1,0 +1,13 @@
+*.sh
+.editorconfig
+.git*
+.*ignore
+.*rc
+LICENSE
+.husky/
+icons/
+images/
+schemas/
+!.prettierrc
+!.nrcrc
+!.github/

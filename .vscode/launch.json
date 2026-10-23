@@ -1,0 +1,35 @@
+// A launch configuration that launches the extension inside a new window
+// Use IntelliSense to learn about possible Node.js debug attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/index.ts",
+      "console": "internalConsole",
+      "stopOnEntry": false
+    },
+    {
+      "name": "Debug Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/test/index.ts",
+      "args": ["${workspaceFolder}/test"],
+      "console": "internalConsole",
+      "stopOnEntry": false
+    },
+    {
+      "name": "Debug Schema Build",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/tools/build.ts",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "stopOnEntry": false
+    }
+  ]
+}

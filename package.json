@@ -1,0 +1,95 @@
+{
+  "name": "@vscode-icons/vscode-icons-api",
+  "description": "Resolve bundled vscode-icons file and folder icons from Node.js.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Dimitris \"Jimi\" Charalampidis",
+    "email": "jimikar@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "Roberto Huertas",
+      "email": "roberto.huertas@outlook.com",
+      "url": "https://robertohuertas.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vscode-icons/vscode-icons-api"
+  },
+  "bugs": {
+    "url": "https://github.com/vscode-icons/vscode-icons-api/issues"
+  },
+  "homepage": "https://github.com/vscode-icons/vscode-icons-api#readme",
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "vscode",
+    "icons",
+    "api"
+  ],
+  "sponsor": {
+    "url": "https://github.com/sponsors/vscode-icons"
+  },
+  "type": "module",
+  "imports": {
+    "#api-json/v1": "./manifests/v1/vsicons-icon-api.json"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "icons",
+    "manifests/v1/vsicons-icon-api.json"
+  ],
+  "scripts": {
+    "prebuild": "npm run cleanup",
+    "build": "tsc -p tsconfig.prod.json",
+    "postbuild": "npm run build:schemas -- --production",
+    "prebuild:dev": "npm run prebuild",
+    "build:dev": "tsc -p tsconfig.json",
+    "postbuild:dev": "npm run build:schemas",
+    "build:schemas": "node src/tools/build.ts",
+    "precheck": "npm run format",
+    "check": "npm run lint && npm run lint:md",
+    "cleanup": "rimraf ./.nyc_output ./coverage ./out ./types ./index.js ./index.d.ts",
+    "format": "prettier --log-level error --write .",
+    "lint": "eslint --fix",
+    "lint:md": "remark . --quiet --output",
+    "prepare": "husky",
+    "reinstall": "rimraf ./package-lock.json ./node_modules && npm i",
+    "pretest": "npm run build:dev",
+    "test": "nyc mocha",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@types/chai": "^5.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "~22.18.0",
+    "@types/sinon": "^22.0.0",
+    "ajv": "^8.0.0",
+    "builtin-modules": "^5.0.0",
+    "chai": "^6.0.0",
+    "eslint": "^10.0.0",
+    "eslint-import-resolver-typescript": "^4.0.0",
+    "eslint-plugin-import-x": "^4.0.0",
+    "esmock": "^3.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^16.0.0",
+    "mocha": "^12.0.0",
+    "nyc": "^18.0.0",
+    "prettier": "^3.0.0",
+    "remark-cli": "^12.0.0",
+    "remark-preset-remcohaszing": "^3.0.0",
+    "rimraf": "^6.0.0",
+    "sinon": "^22.0.0",
+    "ts-json-schema-generator": "^2.9.0",
+    "typescript": "^6.0.0",
+    "typescript-eslint": "^8.0.0"
+  }
+}

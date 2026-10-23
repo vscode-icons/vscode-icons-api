@@ -1,0 +1,188 @@
+name: Sync Icons from vscode-icons
+
+on:
+  repository_dispatch:
+    types: [icons-updated]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    name: Sync icons and icon theme manifest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      changed: ${{ steps.diff.outputs.changed }}
+    steps:
+      - name: Checkout vscode-icons-api
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+
+      - name: Checkout vscode-icons
+        uses: actions/checkout@v7
+        with:
+          repository: vscode-icons/vscode-icons
+          path: vendor/vscode-icons
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: vendor/vscode-icons/.nvmrc
+
+      - name: Install dependencies
+        working-directory: vendor/vscode-icons
+        run: npm ci
+
+      - name: Build icon manifests
+        working-directory: vendor/vscode-icons
+        run: npm run build:dev
+
+      - name: Prepare generated data directories
+        run: mkdir -p schemas/v1 v1
+
+      - name: Sync icons
+        run: rsync -a --delete vendor/vscode-icons/icons/ icons/
+
+      - name: Sync api manifest
+        run: |
+          rsync -a \
+            vendor/vscode-icons/out/src/vsicons-icon-api.json \
+            manifests/v1/vsicons-icon-api.json
+
+      - name: Read source version
+        id: version
+        run: |
+          echo "version=$(node --input-type=module -e '
+            import packageJson from "./vendor/vscode-icons/package.json"
+              with { type: "json" };
+            console.log(packageJson.version);
+          ')" >> "$GITHUB_OUTPUT"
+
+      - name: Clean up vendored source
+        run: rm -rf vendor
+
+      - name: Update README
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          if [[ ! $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            printf 'Invalid vscode-icons version: %s\n' "$VERSION" >&2
+            exit 2
+          fi
+
+          marker='vscode-icons</a> version: <code>'
+          match_count=$(grep -Fc "$marker" README.md || true)
+          if [[ $match_count -ne 1 ]]; then
+            error_message='Expected exactly one vscode-icons version in '
+            error_message+='README.md; found '
+            error_message+="$match_count"
+            printf '%s\n' "$error_message" >&2
+            exit 1
+          fi
+
+          sed_expression='s|(vscode-icons</a> version: <code>)[0-9]+\.[0-9]+'
+          sed_expression+='\.[0-9]+(</code>)|\1'"$VERSION"'\2|'
+          sed -i -E "$sed_expression" README.md
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload generated data
+        uses: actions/upload-artifact@v4
+        with:
+          name: synced-data
+          path: |
+            README.md
+            icons/
+            schemas/
+            v1/
+          if-no-files-found: error
+
+  test:
+    needs: sync
+    uses: ./.github/workflows/test.yml
+    permissions:
+      contents: read
+    with:
+      synced_data_artifact: synced-data
+
+  commit:
+    needs: [sync, test]
+    if: needs.sync.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout vscode-icons-api
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 1
+
+      - name: Download generated data
+        uses: actions/download-artifact@v4
+        with:
+          name: synced-data
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          commit_subject='chore(icons): sync icons from vscode-icons v'
+          commit_subject+="${{ needs.sync.outputs.version }}"
+          git commit -m "$commit_subject"
+          git push origin HEAD:${{ github.ref_name }}
+
+  release:
+    needs: [sync, test, commit]
+    if: needs.sync.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 1
+
+      - name: Download generated data
+        uses: actions/download-artifact@v4
+        with:
+          name: synced-data
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          # Node 26's bundled npm supports staged publishing with OIDC.
+          node-version: 26
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update version
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          npm version minor
+
+      - name: Push version commit and tag
+        run: git push --follow-tags origin HEAD:${{ github.ref_name }}
+
+      - name: Publish package
+        run: npm publish
+
+      # - name: Stage package for review
+      #   run: npm stage publish

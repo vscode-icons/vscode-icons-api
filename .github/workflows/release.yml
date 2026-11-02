@@ -11,8 +11,33 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - name: Checkout
+      - name: Checkout vscode-icons-api
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+
+      - name: Get latest vscode-icons tag
+        id: latest
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag=$(gh release view --repo vscode-icons/vscode-icons \
+            --json tagName --jq .tagName)
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout vscode-icons
+        uses: actions/checkout@v7
+        with:
+          repository: vscode-icons/vscode-icons
+          ref: ${{ steps.latest.outputs.tag }}
+          path: vendor/vscode-icons
+          fetch-depth: 1
+
+      - name: Sync icons
+        run: rsync -a --delete vendor/vscode-icons/icons/ icons/
+
+      - name: Clean up vendored source
+        run: rm -rf vendor
 
       - name: Setup Node.js
         uses: actions/setup-node@v7

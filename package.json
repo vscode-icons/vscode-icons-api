@@ -55,7 +55,7 @@
     "build:schemas": "node src/tools/build.ts",
     "precheck": "npm run format",
     "check": "npm run lint && npm run lint:md",
-    "cleanup": "rimraf ./.nyc_output ./coverage ./out ./types ./index.js ./index.d.ts",
+    "cleanup": "rimraf ./.nyc_output ./coverage ./out ./index.js ./index.d.ts",
     "format": "prettier --log-level error --write .",
     "lint": "eslint --fix",
     "lint:md": "remark . --quiet --output",

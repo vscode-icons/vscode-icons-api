@@ -40,9 +40,6 @@ jobs:
         working-directory: vendor/vscode-icons
         run: npm run build:dev
 
-      - name: Prepare generated data directories
-        run: mkdir -p schemas/v1 v1
-
       - name: Sync icons
         run: rsync -a --delete vendor/vscode-icons/icons/ icons/
 
@@ -102,8 +99,7 @@ jobs:
           path: |
             README.md
             icons/
-            schemas/
-            v1/
+            manifests/
           if-no-files-found: error
 
   test:

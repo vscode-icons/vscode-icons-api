@@ -5,6 +5,10 @@ on:
     types: [icons-updated]
   workflow_dispatch:
 
+concurrency:
+  group: sync-and-release
+  cancel-in-progress: false
+
 jobs:
   sync:
     name: Sync icons and icon theme manifest
@@ -18,6 +22,7 @@ jobs:
       - name: Checkout vscode-icons-api
         uses: actions/checkout@v7
         with:
+          ref: ${{ github.ref_name }}
           fetch-depth: 1
 
       - name: Checkout vscode-icons
@@ -110,40 +115,14 @@ jobs:
     with:
       synced_data_artifact: synced-data
 
-  commit:
+  release:
     needs: [sync, test]
     if: needs.sync.outputs.changed == 'true'
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
     permissions:
-      contents: write
-    steps:
-      - name: Checkout vscode-icons-api
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ github.ref_name }}
-          fetch-depth: 1
-
-      - name: Download generated data
-        uses: actions/download-artifact@v4
-        with:
-          name: synced-data
-
-      - name: Commit and push changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          commit_subject='chore(icons): sync icons from vscode-icons v'
-          commit_subject+="${{ needs.sync.outputs.version }}"
-          git commit -m "$commit_subject"
-          git push origin HEAD:${{ github.ref_name }}
-
-  release:
-    needs: [sync, test, commit]
-    if: needs.sync.outputs.changed == 'true'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+      contents: read
       id-token: write
     steps:
       - name: Checkout
@@ -151,6 +130,9 @@ jobs:
         with:
           ref: ${{ github.ref_name }}
           fetch-depth: 1
+
+      - name: Clear existing synced data
+        run: rm -rf icons manifests
 
       - name: Download generated data
         uses: actions/download-artifact@v4
@@ -169,16 +151,90 @@ jobs:
         run: npm ci
 
       - name: Update version
+        id: version
+        run: |
+          npm version minor --no-git-tag-version
+          version=$(node -p "JSON.parse(require('node:fs').readFileSync('package.json', 'utf8')).version")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Publish package
+        run: |
+          package_name=$(node -p "JSON.parse(require('node:fs').readFileSync('package.json', 'utf8')).name")
+          package_version=$(node -p "JSON.parse(require('node:fs').readFileSync('package.json', 'utf8')).version")
+          if registry_result=$(npm view "$package_name@$package_version" version 2>&1); then
+            printf 'Package %s@%s is already published; skipping.\n' \
+              "$package_name" "$package_version"
+          elif [[ $registry_result == *E404* ]]; then
+            npm publish
+          else
+            printf 'Failed to check npm for %s@%s:\n%s\n' \
+              "$package_name" "$package_version" "$registry_result" >&2
+            exit 1
+          fi
+
+      # - name: Stage package for review
+      #   run: |
+      #     package_name=$(node -p "JSON.parse(require('node:fs').readFileSync('package.json', 'utf8')).name")
+      #     package_version=$(node -p "JSON.parse(require('node:fs').readFileSync('package.json', 'utf8')).version")
+      #     if registry_result=$(npm view "$package_name@$package_version" version 2>&1); then
+      #       printf 'Package %s@%s is already published; skipping.\n' \
+      #         "$package_name" "$package_version"
+      #     elif [[ $registry_result == *E404* ]]; then
+      #       npm stage publish
+      #     else
+      #       printf 'Failed to check npm for %s@%s:\n%s\n' \
+      #         "$package_name" "$package_version" "$registry_result" >&2
+      #       exit 1
+      #     fi
+
+      - name: Upload versioned package metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: versioned-package
+          path: |
+            package.json
+            package-lock.json
+
+  commit:
+    needs: [sync, release]
+    if: needs.sync.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout vscode-icons-api
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 1
+
+      - name: Clear existing synced data
+        run: rm -rf icons manifests
+
+      - name: Download synced data
+        uses: actions/download-artifact@v4
+        with:
+          name: synced-data
+
+      - name: Download versioned package metadata
+        uses: actions/download-artifact@v4
+        with:
+          name: versioned-package
+
+      - name: Commit synced data and version
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          npm version minor
+          git add -A -- README.md icons/ manifests/ package.json package-lock.json
+          commit_subject='chore(icons): sync icons from vscode-icons v'
+          commit_subject+="${{ needs.sync.outputs.version }}"
+          git commit -m "$commit_subject"
 
-      - name: Push version commit and tag
-        run: git push --follow-tags origin HEAD:${{ github.ref_name }}
+      - name: Create version tag
+        env:
+          VERSION: ${{ needs.release.outputs.version }}
+        run: git tag -a "v$VERSION" -m "v$VERSION"
 
-      - name: Publish package
-        run: npm publish
-
-      # - name: Stage package for review
-      #   run: npm stage publish
+      - name: Push commit and tag
+        run: |
+          git push --follow-tags origin HEAD:${{ github.ref_name }}

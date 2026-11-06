@@ -22,11 +22,8 @@
       "asm": "./icons/file_type_assembly.svg",
       "astro": "./icons/file_type_astro.svg",
       "ats": "./icons/file_type_ats.svg",
-      "ahk": "./icons/file_type_autohotkey2.svg",
       "ahk1": "./icons/file_type_autohotkey.svg",
       "ah1": "./icons/file_type_autohotkey.svg",
-      "ahk2": "./icons/file_type_autohotkey2.svg",
-      "ah2": "./icons/file_type_autohotkey2.svg",
       "au3": "./icons/file_type_autoit.svg",
       "avcs": "./icons/file_type_avro.svg",
       "azcli": "./icons/file_type_azure.svg",
@@ -571,9 +568,6 @@
       "gemfile": "./icons/file_type_bundler.svg",
       "gemfile.lock": "./icons/file_type_bundler.svg",
       "cake": "./icons/file_type_cake.svg",
-      "cdp": "./icons/file_type_cdp.svg",
-      "codrop": "./icons/file_type_cdp.svg",
-      "cdp1": "./icons/file_type_cdp.svg",
       "csr": "./icons/file_type_cert.svg",
       "crt": "./icons/file_type_cert.svg",
       "cer": "./icons/file_type_cert.svg",
@@ -872,7 +866,6 @@
       "sketch": "./icons/file_type_sketch.svg",
       "slnx": "./icons/file_type_sln.svg",
       "slnf": "./icons/file_type_sln.svg",
-      "smolfile": "./icons/file_type_smolmachine.svg",
       "spe": "./icons/file_type_spacengine.svg",
       "sqlite": "./icons/file_type_sqlite.svg",
       "sqlite3": "./icons/file_type_sqlite.svg",
@@ -1085,10 +1078,6 @@
       "app-definition.yaml": "./icons/file_type_appsemble.svg",
       "appveyor.yml": "./icons/file_type_appveyor.svg",
       ".appveyor.yml": "./icons/file_type_appveyor.svg",
-      "apphost.ts": "./icons/file_type_aspire.svg",
-      "apphost.mts": "./icons/file_type_aspire.svg",
-      "apphost.cs": "./icons/file_type_aspire.svg",
-      "AppHost.cs": "./icons/file_type_aspire.svg",
       "asconfig.json": "./icons/file_type_assembly_script.svg",
       "astro.config.js": "./icons/file_type_astroconfig.svg",
       "astro.config.cjs": "./icons/file_type_astroconfig.svg",
@@ -1099,8 +1088,6 @@
       "asyncapi.json": "./icons/file_type_asyncapi.svg",
       "asyncapi.yaml": "./icons/file_type_asyncapi.svg",
       ".attw.json": "./icons/file_type_attw.svg",
-      "aube-lock.yaml": "./icons/file_type_aube.svg",
-      "aube-workspace.yaml": "./icons/file_type_aube.svg",
       "aurelia.json": "./icons/file_type_aurelia.svg",
       "azure-pipelines.yml": "./icons/file_type_azurepipelines.svg",
       ".vsts-ci.yml": "./icons/file_type_azurepipelines.svg",
@@ -1467,10 +1454,6 @@
       "app.config.js": "./icons/file_type_expo.svg",
       "eas.json": "./icons/file_type_expo.svg",
       ".easignore": "./icons/file_type_expo.svg",
-      ".fallowrc.json": "./icons/file_type_fallow.svg",
-      ".fallowrc.jsonc": "./icons/file_type_fallow.svg",
-      "fallow.toml": "./icons/file_type_fallow.svg",
-      ".fallow.toml": "./icons/file_type_fallow.svg",
       ".fantasticonrc": "./icons/file_type_fantasticon.svg",
       "fantasticonrc": "./icons/file_type_fantasticon.svg",
       ".fantasticonrc.json": "./icons/file_type_fantasticon.svg",
@@ -1489,12 +1472,6 @@
       "fleet.yaml": "./icons/file_type_fleet.svg",
       ".flooignore": "./icons/file_type_floobits.svg",
       ".flowconfig": "./icons/file_type_flow.svg",
-      "flue.config.js": "./icons/file_type_flue.svg",
-      "flue.config.mjs": "./icons/file_type_flue.svg",
-      "flue.config.cjs": "./icons/file_type_flue.svg",
-      "flue.config.ts": "./icons/file_type_flue.svg",
-      "flue.config.cts": "./icons/file_type_flue.svg",
-      "flue.config.mts": "./icons/file_type_flue.svg",
       ".flutter-plugins": "./icons/file_type_flutter.svg",
       ".metadata": "./icons/file_type_flutter.svg",
       ".flutter-plugins-dependencies": "./icons/file_type_flutter.svg",
@@ -1687,8 +1664,6 @@
       "jest.config.unit.ts": "./icons/file_type_jest.svg",
       "jest.config.unit.cts": "./icons/file_type_jest.svg",
       "jest.config.unit.mts": "./icons/file_type_jest.svg",
-      "jitpack.yml": "./icons/file_type_jitpack.svg",
-      ".jitpack.yml": "./icons/file_type_jitpack.svg",
       ".jpmignore": "./icons/file_type_jpm.svg",
       ".jsbeautifyrc": "./icons/file_type_jsbeautify.svg",
       "jsbeautifyrc": "./icons/file_type_jsbeautify.svg",
@@ -1980,7 +1955,6 @@
       "next.config.mjs": "./icons/file_type_next.svg",
       "next.config.ts": "./icons/file_type_next.svg",
       "next.config.mts": "./icons/file_type_next.svg",
-      "nextest.toml": "./icons/file_type_nextest.svg",
       ".nf": "./icons/file_type_nextflow.svg",
       "ng-package.json": "./icons/file_type_ng-packagr.svg",
       "ng-package.js": "./icons/file_type_ng-packagr.svg",
@@ -2068,8 +2042,6 @@
       "orval.config.js": "./icons/file_type_orval.svg",
       "orval.config.ts": "./icons/file_type_orval.svg",
       "orval.config.mjs": "./icons/file_type_orval.svg",
-      ".overcommit.yml": "./icons/file_type_overcommit.svg",
-      ".local-overcommit.yml": "./icons/file_type_overcommit.svg",
       ".overmind.env": "./icons/file_type_overmind.svg",
       ".oxlintignore": "./icons/file_type_oxc.svg",
       ".oxlintrc.json": "./icons/file_type_oxc.svg",
@@ -2118,14 +2090,6 @@
       "pipfile.lock": "./icons/file_type_pip.svg",
       "pixi.lock": "./icons/file_type_pixi.svg",
       "pixi.toml": "./icons/file_type_pixi.svg",
-      "watt.json": "./icons/file_type_platformatic.svg",
-      "watt.json5": "./icons/file_type_platformatic.svg",
-      "platformatic.json": "./icons/file_type_platformatic.svg",
-      "platformatic.json5": "./icons/file_type_platformatic.svg",
-      "platformatic.yml": "./icons/file_type_platformatic.svg",
-      "platformatic.yaml": "./icons/file_type_platformatic.svg",
-      "platformatic.tml": "./icons/file_type_platformatic.svg",
-      "platformatic.toml": "./icons/file_type_platformatic.svg",
       "platformio.ini": "./icons/file_type_platformio.svg",
       "playwright.config.js": "./icons/file_type_playwright.svg",
       "playwright.config.ts": "./icons/file_type_playwright.svg",
@@ -2247,7 +2211,6 @@
       "Pulumi.prod.yaml": "./icons/file_type_pulumi.svg",
       "Pulumi.prod.yml": "./icons/file_type_pulumi.svg",
       "purgecss.config.js": "./icons/file_type_purgecss.svg",
-      "pyinstaller.spec": "./icons/file_type_pyinstaller.svg",
       "pyproject.toml": "./icons/file_type_pypi.svg",
       "pyrefly.toml": "./icons/file_type_pyrefly.svg",
       "pytest.ini": "./icons/file_type_pytest.svg",
@@ -2279,16 +2242,6 @@
       "razzle.config.js": "./icons/file_type_razzle.svg",
       "react-router.config.js": "./icons/file_type_reactrouter.svg",
       "react-router.config.ts": "./icons/file_type_reactrouter.svg",
-      "README": "./icons/file_type_readme.svg",
-      "README.md": "./icons/file_type_readme.svg",
-      "README.markdown": "./icons/file_type_readme.svg",
-      "README.rst": "./icons/file_type_readme.svg",
-      "README.txt": "./icons/file_type_readme.svg",
-      "INDEX": "./icons/file_type_readme.svg",
-      "INDEX.md": "./icons/file_type_readme.svg",
-      "INDEX.markdown": "./icons/file_type_readme.svg",
-      "INDEX.rst": "./icons/file_type_readme.svg",
-      "INDEX.txt": "./icons/file_type_readme.svg",
       ".readthedocs.yaml": "./icons/file_type_readthedocs.svg",
       ".readthedocs.yml": "./icons/file_type_readthedocs.svg",
       "readthedocs.yaml": "./icons/file_type_readthedocs.svg",
@@ -2302,10 +2255,6 @@
       ".rehyperc.mjs": "./icons/file_type_rehype.svg",
       ".rehyperc.yml": "./icons/file_type_rehype.svg",
       ".rehyperc.yaml": "./icons/file_type_rehype.svg",
-      "relay.config.json": "./icons/file_type_relay.svg",
-      "relay.config.js": "./icons/file_type_relay.svg",
-      "relay.config.mjs": "./icons/file_type_relay.svg",
-      "relay.config.ts": "./icons/file_type_relay.svg",
       ".remarkrc": "./icons/file_type_remark.svg",
       ".remarkignore": "./icons/file_type_remark.svg",
       ".remarkrc.cjs": "./icons/file_type_remark.svg",
@@ -2330,11 +2279,6 @@
       ".retextrc.yml": "./icons/file_type_retext.svg",
       ".retextrc.yaml": "./icons/file_type_retext.svg",
       "REUSE.toml": "./icons/file_type_reuse.svg",
-      ".robocop": "./icons/file_type_robocop.svg",
-      "robocop.toml": "./icons/file_type_robocop.svg",
-      ".robot.toml": "./icons/file_type_robotcode.svg",
-      "robot.toml": "./icons/file_type_robotcode.svg",
-      ".robotignore": "./icons/file_type_robotcode.svg",
       "rolldown.config.js": "./icons/file_type_rolldown.svg",
       "rolldown.config.cjs": "./icons/file_type_rolldown.svg",
       "rolldown.config.mjs": "./icons/file_type_rolldown.svg",
@@ -2482,8 +2426,6 @@
       "sitemap.atom": "./icons/file_type_sitemap.svg",
       "slash-up.config.js": "./icons/file_type_slashup.svg",
       "smithery.yaml": "./icons/file_type_smithery.svg",
-      ".smolmachine": "./icons/file_type_smolmachine.svg",
-      "smolfile.toml": "./icons/file_type_smolmachine.svg",
       "snapcraft.yaml": "./icons/file_type_snapcraft.svg",
       "snaplet.config.js": "./icons/file_type_snaplet.svg",
       "snaplet.config.ts": "./icons/file_type_snaplet.svg",
@@ -2550,9 +2492,6 @@
       ".svnignore": "./icons/file_type_subversion.svg",
       "svelte.config.js": "./icons/file_type_svelteconfig.svg",
       "svelte.config.ts": "./icons/file_type_svelteconfig.svg",
-      ".svglintrc.cjs": "./icons/file_type_svglint.svg",
-      ".svglintrc.js": "./icons/file_type_svglint.svg",
-      ".svglintrc.mjs": "./icons/file_type_svglint.svg",
       "svgo.config.cjs": "./icons/file_type_svgo.svg",
       "svgo.config.js": "./icons/file_type_svgo.svg",
       "svgo.config.mjs": "./icons/file_type_svgo.svg",
@@ -2614,7 +2553,6 @@
       "taskfile.yaml": "./icons/file_type_taskfile.svg",
       "taskfile.dist.yml": "./icons/file_type_taskfile.svg",
       "taskfile.dist.yaml": "./icons/file_type_taskfile.svg",
-      "tasks.json": "./icons/file_type_tasks_json.svg",
       "tauri.conf.json": "./icons/file_type_tauri.svg",
       ".taurignore": "./icons/file_type_tauri.svg",
       ".testcaferc.json": "./icons/file_type_testcafe.svg",
@@ -2983,8 +2921,6 @@
       "werf-includes.yaml": "./icons/file_type_werf.svg",
       "windi.config.ts": "./icons/file_type_windi.svg",
       "windi.config.js": "./icons/file_type_windi.svg",
-      ".woke.yaml": "./icons/file_type_woke.svg",
-      ".woke.yml": "./icons/file_type_woke.svg",
       "wpml-config.xml": "./icons/file_type_wpml.svg",
       "wxt.config.js": "./icons/file_type_wxt.svg",
       "wxt.config.cjs": "./icons/file_type_wxt.svg",
@@ -3025,11 +2961,6 @@
       ".yarn-state.yml": "./icons/file_type_yarn.svg",
       ".yarnignore": "./icons/file_type_yarn.svg",
       ".yo-rc.json": "./icons/file_type_yeoman.svg",
-      ".zedignore": "./icons/file_type_zed.svg",
-      ".zed/launch.json": "./icons/file_type_zed.svg",
-      ".zed/debug.json": "./icons/file_type_zed.svg",
-      ".zed/tasks.json": "./icons/file_type_zed.svg",
-      "zedignore.json": "./icons/file_type_zed.svg",
       "zensical.toml": "./icons/file_type_zensical.svg",
       "zizmor.yaml": "./icons/file_type_zizmor.svg",
       "zizmor.yml": "./icons/file_type_zizmor.svg",
@@ -3259,22 +3190,6 @@
     "bower_components": {
       "closed": "./icons/folder_type_bower.svg",
       "opened": "./icons/folder_type_bower_opened.svg"
-    },
-    ".buckd": {
-      "closed": "./icons/folder_type_buck.svg",
-      "opened": "./icons/folder_type_buck_opened.svg"
-    },
-    ".buckconfig.d": {
-      "closed": "./icons/folder_type_buck.svg",
-      "opened": "./icons/folder_type_buck_opened.svg"
-    },
-    "buckconfig.d": {
-      "closed": "./icons/folder_type_buck.svg",
-      "opened": "./icons/folder_type_buck_opened.svg"
-    },
-    "buck-out": {
-      "closed": "./icons/folder_type_buck.svg",
-      "opened": "./icons/folder_type_buck_opened.svg"
     },
     ".buildkite": {
       "closed": "./icons/folder_type_buildkite.svg",
@@ -3676,14 +3591,6 @@
       "closed": "./icons/folder_type_devenv.svg",
       "opened": "./icons/folder_type_devenv_opened.svg"
     },
-    "discord": {
-      "closed": "./icons/folder_type_discord.svg",
-      "opened": "./icons/folder_type_discord_opened.svg"
-    },
-    ".discord": {
-      "closed": "./icons/folder_type_discord.svg",
-      "opened": "./icons/folder_type_discord_opened.svg"
-    },
     "dist": {
       "closed": "./icons/folder_type_dist.svg",
       "opened": "./icons/folder_type_dist_opened.svg"
@@ -3771,18 +3678,6 @@
     "documents": {
       "closed": "./icons/folder_type_docs.svg",
       "opened": "./icons/folder_type_docs_opened.svg"
-    },
-    "domain": {
-      "closed": "./icons/folder_type_domain.svg",
-      "opened": "./icons/folder_type_domain_opened.svg"
-    },
-    "domains": {
-      "closed": "./icons/folder_type_domain.svg",
-      "opened": "./icons/folder_type_domain_opened.svg"
-    },
-    "drizzle": {
-      "closed": "./icons/folder_type_drizzle_orm.svg",
-      "opened": "./icons/folder_type_drizzle_orm_opened.svg"
     },
     "e2e": {
       "closed": "./icons/folder_type_e2e.svg",
@@ -4140,10 +4035,6 @@
       "closed": "./icons/folder_type_junie.svg",
       "opened": "./icons/folder_type_junie_opened.svg"
     },
-    ".kadence": {
-      "closed": "./icons/folder_type_kadence.svg",
-      "opened": "./icons/folder_type_kadence_opened.svg"
-    },
     ".kiro": {
       "closed": "./icons/folder_type_kiro.svg",
       "opened": "./icons/folder_type_kiro_opened.svg"
@@ -4315,10 +4206,6 @@
     "loggers": {
       "closed": "./icons/folder_type_log.svg",
       "opened": "./icons/folder_type_log_opened.svg"
-    },
-    "lua": {
-      "closed": "./icons/folder_type_lua.svg",
-      "opened": "./icons/folder_type_lua_opened.svg"
     },
     "macos": {
       "closed": "./icons/folder_type_macos.svg",
@@ -4628,18 +4515,6 @@
       "closed": "./icons/folder_type_private.svg",
       "opened": "./icons/folder_type_private_opened.svg"
     },
-    "protobuf": {
-      "closed": "./icons/folder_type_protobuf.svg",
-      "opened": "./icons/folder_type_protobuf_opened.svg"
-    },
-    "proto": {
-      "closed": "./icons/folder_type_protobuf.svg",
-      "opened": "./icons/folder_type_protobuf_opened.svg"
-    },
-    "protos": {
-      "closed": "./icons/folder_type_protobuf.svg",
-      "opened": "./icons/folder_type_protobuf_opened.svg"
-    },
     "public": {
       "closed": "./icons/folder_type_public.svg",
       "opened": "./icons/folder_type_public_opened.svg"
@@ -4791,22 +4666,6 @@
     "__share__": {
       "closed": "./icons/folder_type_shared.svg",
       "opened": "./icons/folder_type_shared_opened.svg"
-    },
-    ".skills": {
-      "closed": "./icons/folder_type_skill.svg",
-      "opened": "./icons/folder_type_skill_opened.svg"
-    },
-    ".skill": {
-      "closed": "./icons/folder_type_skill.svg",
-      "opened": "./icons/folder_type_skill_opened.svg"
-    },
-    "skills": {
-      "closed": "./icons/folder_type_skill.svg",
-      "opened": "./icons/folder_type_skill_opened.svg"
-    },
-    "skill": {
-      "closed": "./icons/folder_type_skill.svg",
-      "opened": "./icons/folder_type_skill_opened.svg"
     },
     "slackware": {
       "closed": "./icons/folder_type_slackware.svg",
@@ -5253,11 +5112,8 @@
         "asm": "./icons/file_type_assembly.svg",
         "astro": "./icons/file_type_light_astro.svg",
         "ats": "./icons/file_type_ats.svg",
-        "ahk": "./icons/file_type_autohotkey2.svg",
         "ahk1": "./icons/file_type_autohotkey.svg",
         "ah1": "./icons/file_type_autohotkey.svg",
-        "ahk2": "./icons/file_type_autohotkey2.svg",
-        "ah2": "./icons/file_type_autohotkey2.svg",
         "au3": "./icons/file_type_autoit.svg",
         "avcs": "./icons/file_type_avro.svg",
         "azcli": "./icons/file_type_azure.svg",
@@ -5802,9 +5658,6 @@
         "gemfile": "./icons/file_type_bundler.svg",
         "gemfile.lock": "./icons/file_type_bundler.svg",
         "cake": "./icons/file_type_cake.svg",
-        "cdp": "./icons/file_type_cdp.svg",
-        "codrop": "./icons/file_type_cdp.svg",
-        "cdp1": "./icons/file_type_cdp.svg",
         "csr": "./icons/file_type_cert.svg",
         "crt": "./icons/file_type_cert.svg",
         "cer": "./icons/file_type_cert.svg",
@@ -6103,7 +5956,6 @@
         "sketch": "./icons/file_type_sketch.svg",
         "slnx": "./icons/file_type_sln.svg",
         "slnf": "./icons/file_type_sln.svg",
-        "smolfile": "./icons/file_type_smolmachine.svg",
         "spe": "./icons/file_type_spacengine.svg",
         "sqlite": "./icons/file_type_sqlite.svg",
         "sqlite3": "./icons/file_type_sqlite.svg",
@@ -6316,10 +6168,6 @@
         "app-definition.yaml": "./icons/file_type_appsemble.svg",
         "appveyor.yml": "./icons/file_type_appveyor.svg",
         ".appveyor.yml": "./icons/file_type_appveyor.svg",
-        "apphost.ts": "./icons/file_type_aspire.svg",
-        "apphost.mts": "./icons/file_type_aspire.svg",
-        "apphost.cs": "./icons/file_type_aspire.svg",
-        "AppHost.cs": "./icons/file_type_aspire.svg",
         "asconfig.json": "./icons/file_type_assembly_script.svg",
         "astro.config.js": "./icons/file_type_light_astroconfig.svg",
         "astro.config.cjs": "./icons/file_type_light_astroconfig.svg",
@@ -6330,8 +6178,6 @@
         "asyncapi.json": "./icons/file_type_asyncapi.svg",
         "asyncapi.yaml": "./icons/file_type_asyncapi.svg",
         ".attw.json": "./icons/file_type_attw.svg",
-        "aube-lock.yaml": "./icons/file_type_aube.svg",
-        "aube-workspace.yaml": "./icons/file_type_aube.svg",
         "aurelia.json": "./icons/file_type_aurelia.svg",
         "azure-pipelines.yml": "./icons/file_type_azurepipelines.svg",
         ".vsts-ci.yml": "./icons/file_type_azurepipelines.svg",
@@ -6698,10 +6544,6 @@
         "app.config.js": "./icons/file_type_light_expo.svg",
         "eas.json": "./icons/file_type_light_expo.svg",
         ".easignore": "./icons/file_type_light_expo.svg",
-        ".fallowrc.json": "./icons/file_type_fallow.svg",
-        ".fallowrc.jsonc": "./icons/file_type_fallow.svg",
-        "fallow.toml": "./icons/file_type_fallow.svg",
-        ".fallow.toml": "./icons/file_type_fallow.svg",
         ".fantasticonrc": "./icons/file_type_fantasticon.svg",
         "fantasticonrc": "./icons/file_type_fantasticon.svg",
         ".fantasticonrc.json": "./icons/file_type_fantasticon.svg",
@@ -6720,12 +6562,6 @@
         "fleet.yaml": "./icons/file_type_fleet.svg",
         ".flooignore": "./icons/file_type_floobits.svg",
         ".flowconfig": "./icons/file_type_flow.svg",
-        "flue.config.js": "./icons/file_type_flue.svg",
-        "flue.config.mjs": "./icons/file_type_flue.svg",
-        "flue.config.cjs": "./icons/file_type_flue.svg",
-        "flue.config.ts": "./icons/file_type_flue.svg",
-        "flue.config.cts": "./icons/file_type_flue.svg",
-        "flue.config.mts": "./icons/file_type_flue.svg",
         ".flutter-plugins": "./icons/file_type_flutter.svg",
         ".metadata": "./icons/file_type_flutter.svg",
         ".flutter-plugins-dependencies": "./icons/file_type_flutter.svg",
@@ -6918,8 +6754,6 @@
         "jest.config.unit.ts": "./icons/file_type_jest.svg",
         "jest.config.unit.cts": "./icons/file_type_jest.svg",
         "jest.config.unit.mts": "./icons/file_type_jest.svg",
-        "jitpack.yml": "./icons/file_type_light_jitpack.svg",
-        ".jitpack.yml": "./icons/file_type_light_jitpack.svg",
         ".jpmignore": "./icons/file_type_jpm.svg",
         ".jsbeautifyrc": "./icons/file_type_jsbeautify.svg",
         "jsbeautifyrc": "./icons/file_type_jsbeautify.svg",
@@ -7211,7 +7045,6 @@
         "next.config.mjs": "./icons/file_type_light_next.svg",
         "next.config.ts": "./icons/file_type_light_next.svg",
         "next.config.mts": "./icons/file_type_light_next.svg",
-        "nextest.toml": "./icons/file_type_nextest.svg",
         ".nf": "./icons/file_type_nextflow.svg",
         "ng-package.json": "./icons/file_type_ng-packagr.svg",
         "ng-package.js": "./icons/file_type_ng-packagr.svg",
@@ -7299,8 +7132,6 @@
         "orval.config.js": "./icons/file_type_orval.svg",
         "orval.config.ts": "./icons/file_type_orval.svg",
         "orval.config.mjs": "./icons/file_type_orval.svg",
-        ".overcommit.yml": "./icons/file_type_light_overcommit.svg",
-        ".local-overcommit.yml": "./icons/file_type_light_overcommit.svg",
         ".overmind.env": "./icons/file_type_overmind.svg",
         ".oxlintignore": "./icons/file_type_light_oxc.svg",
         ".oxlintrc.json": "./icons/file_type_light_oxc.svg",
@@ -7349,14 +7180,6 @@
         "pipfile.lock": "./icons/file_type_pip.svg",
         "pixi.lock": "./icons/file_type_pixi.svg",
         "pixi.toml": "./icons/file_type_pixi.svg",
-        "watt.json": "./icons/file_type_light_platformatic.svg",
-        "watt.json5": "./icons/file_type_light_platformatic.svg",
-        "platformatic.json": "./icons/file_type_light_platformatic.svg",
-        "platformatic.json5": "./icons/file_type_light_platformatic.svg",
-        "platformatic.yml": "./icons/file_type_light_platformatic.svg",
-        "platformatic.yaml": "./icons/file_type_light_platformatic.svg",
-        "platformatic.tml": "./icons/file_type_light_platformatic.svg",
-        "platformatic.toml": "./icons/file_type_light_platformatic.svg",
         "platformio.ini": "./icons/file_type_platformio.svg",
         "playwright.config.js": "./icons/file_type_playwright.svg",
         "playwright.config.ts": "./icons/file_type_playwright.svg",
@@ -7478,7 +7301,6 @@
         "Pulumi.prod.yaml": "./icons/file_type_pulumi.svg",
         "Pulumi.prod.yml": "./icons/file_type_pulumi.svg",
         "purgecss.config.js": "./icons/file_type_purgecss.svg",
-        "pyinstaller.spec": "./icons/file_type_pyinstaller.svg",
         "pyproject.toml": "./icons/file_type_pypi.svg",
         "pyrefly.toml": "./icons/file_type_light_pyrefly.svg",
         "pytest.ini": "./icons/file_type_pytest.svg",
@@ -7510,16 +7332,6 @@
         "razzle.config.js": "./icons/file_type_light_razzle.svg",
         "react-router.config.js": "./icons/file_type_light_reactrouter.svg",
         "react-router.config.ts": "./icons/file_type_light_reactrouter.svg",
-        "README": "./icons/file_type_readme.svg",
-        "README.md": "./icons/file_type_readme.svg",
-        "README.markdown": "./icons/file_type_readme.svg",
-        "README.rst": "./icons/file_type_readme.svg",
-        "README.txt": "./icons/file_type_readme.svg",
-        "INDEX": "./icons/file_type_readme.svg",
-        "INDEX.md": "./icons/file_type_readme.svg",
-        "INDEX.markdown": "./icons/file_type_readme.svg",
-        "INDEX.rst": "./icons/file_type_readme.svg",
-        "INDEX.txt": "./icons/file_type_readme.svg",
         ".readthedocs.yaml": "./icons/file_type_light_readthedocs.svg",
         ".readthedocs.yml": "./icons/file_type_light_readthedocs.svg",
         "readthedocs.yaml": "./icons/file_type_light_readthedocs.svg",
@@ -7533,10 +7345,6 @@
         ".rehyperc.mjs": "./icons/file_type_light_rehype.svg",
         ".rehyperc.yml": "./icons/file_type_light_rehype.svg",
         ".rehyperc.yaml": "./icons/file_type_light_rehype.svg",
-        "relay.config.json": "./icons/file_type_relay.svg",
-        "relay.config.js": "./icons/file_type_relay.svg",
-        "relay.config.mjs": "./icons/file_type_relay.svg",
-        "relay.config.ts": "./icons/file_type_relay.svg",
         ".remarkrc": "./icons/file_type_light_remark.svg",
         ".remarkignore": "./icons/file_type_light_remark.svg",
         ".remarkrc.cjs": "./icons/file_type_light_remark.svg",
@@ -7561,11 +7369,6 @@
         ".retextrc.yml": "./icons/file_type_light_retext.svg",
         ".retextrc.yaml": "./icons/file_type_light_retext.svg",
         "REUSE.toml": "./icons/file_type_reuse.svg",
-        ".robocop": "./icons/file_type_light_robocop.svg",
-        "robocop.toml": "./icons/file_type_light_robocop.svg",
-        ".robot.toml": "./icons/file_type_robotcode.svg",
-        "robot.toml": "./icons/file_type_robotcode.svg",
-        ".robotignore": "./icons/file_type_robotcode.svg",
         "rolldown.config.js": "./icons/file_type_light_rolldown.svg",
         "rolldown.config.cjs": "./icons/file_type_light_rolldown.svg",
         "rolldown.config.mjs": "./icons/file_type_light_rolldown.svg",
@@ -7713,8 +7516,6 @@
         "sitemap.atom": "./icons/file_type_sitemap.svg",
         "slash-up.config.js": "./icons/file_type_slashup.svg",
         "smithery.yaml": "./icons/file_type_smithery.svg",
-        ".smolmachine": "./icons/file_type_smolmachine.svg",
-        "smolfile.toml": "./icons/file_type_smolmachine.svg",
         "snapcraft.yaml": "./icons/file_type_snapcraft.svg",
         "snaplet.config.js": "./icons/file_type_snaplet.svg",
         "snaplet.config.ts": "./icons/file_type_snaplet.svg",
@@ -7781,9 +7582,6 @@
         ".svnignore": "./icons/file_type_subversion.svg",
         "svelte.config.js": "./icons/file_type_svelteconfig.svg",
         "svelte.config.ts": "./icons/file_type_svelteconfig.svg",
-        ".svglintrc.cjs": "./icons/file_type_svglint.svg",
-        ".svglintrc.js": "./icons/file_type_svglint.svg",
-        ".svglintrc.mjs": "./icons/file_type_svglint.svg",
         "svgo.config.cjs": "./icons/file_type_svgo.svg",
         "svgo.config.js": "./icons/file_type_svgo.svg",
         "svgo.config.mjs": "./icons/file_type_svgo.svg",
@@ -7845,7 +7643,6 @@
         "taskfile.yaml": "./icons/file_type_taskfile.svg",
         "taskfile.dist.yml": "./icons/file_type_taskfile.svg",
         "taskfile.dist.yaml": "./icons/file_type_taskfile.svg",
-        "tasks.json": "./icons/file_type_tasks_json.svg",
         "tauri.conf.json": "./icons/file_type_tauri.svg",
         ".taurignore": "./icons/file_type_tauri.svg",
         ".testcaferc.json": "./icons/file_type_light_testcafe.svg",
@@ -8214,8 +8011,6 @@
         "werf-includes.yaml": "./icons/file_type_werf.svg",
         "windi.config.ts": "./icons/file_type_windi.svg",
         "windi.config.js": "./icons/file_type_windi.svg",
-        ".woke.yaml": "./icons/file_type_woke.svg",
-        ".woke.yml": "./icons/file_type_woke.svg",
         "wpml-config.xml": "./icons/file_type_wpml.svg",
         "wxt.config.js": "./icons/file_type_wxt.svg",
         "wxt.config.cjs": "./icons/file_type_wxt.svg",
@@ -8256,11 +8051,6 @@
         ".yarn-state.yml": "./icons/file_type_yarn.svg",
         ".yarnignore": "./icons/file_type_yarn.svg",
         ".yo-rc.json": "./icons/file_type_yeoman.svg",
-        ".zedignore": "./icons/file_type_light_zed.svg",
-        ".zed/launch.json": "./icons/file_type_light_zed.svg",
-        ".zed/debug.json": "./icons/file_type_light_zed.svg",
-        ".zed/tasks.json": "./icons/file_type_light_zed.svg",
-        "zedignore.json": "./icons/file_type_light_zed.svg",
         "zensical.toml": "./icons/file_type_zensical.svg",
         "zizmor.yaml": "./icons/file_type_zizmor.svg",
         "zizmor.yml": "./icons/file_type_zizmor.svg",
@@ -8490,22 +8280,6 @@
       "bower_components": {
         "closed": "./icons/folder_type_bower.svg",
         "opened": "./icons/folder_type_bower_opened.svg"
-      },
-      ".buckd": {
-        "closed": "./icons/folder_type_buck.svg",
-        "opened": "./icons/folder_type_buck_opened.svg"
-      },
-      ".buckconfig.d": {
-        "closed": "./icons/folder_type_buck.svg",
-        "opened": "./icons/folder_type_buck_opened.svg"
-      },
-      "buckconfig.d": {
-        "closed": "./icons/folder_type_buck.svg",
-        "opened": "./icons/folder_type_buck_opened.svg"
-      },
-      "buck-out": {
-        "closed": "./icons/folder_type_buck.svg",
-        "opened": "./icons/folder_type_buck_opened.svg"
       },
       ".buildkite": {
         "closed": "./icons/folder_type_buildkite.svg",
@@ -8907,14 +8681,6 @@
         "closed": "./icons/folder_type_light_devenv.svg",
         "opened": "./icons/folder_type_light_devenv_opened.svg"
       },
-      "discord": {
-        "closed": "./icons/folder_type_discord.svg",
-        "opened": "./icons/folder_type_discord_opened.svg"
-      },
-      ".discord": {
-        "closed": "./icons/folder_type_discord.svg",
-        "opened": "./icons/folder_type_discord_opened.svg"
-      },
       "dist": {
         "closed": "./icons/folder_type_dist.svg",
         "opened": "./icons/folder_type_dist_opened.svg"
@@ -9002,18 +8768,6 @@
       "documents": {
         "closed": "./icons/folder_type_docs.svg",
         "opened": "./icons/folder_type_docs_opened.svg"
-      },
-      "domain": {
-        "closed": "./icons/folder_type_domain.svg",
-        "opened": "./icons/folder_type_domain_opened.svg"
-      },
-      "domains": {
-        "closed": "./icons/folder_type_domain.svg",
-        "opened": "./icons/folder_type_domain_opened.svg"
-      },
-      "drizzle": {
-        "closed": "./icons/folder_type_light_drizzle_orm.svg",
-        "opened": "./icons/folder_type_light_drizzle_orm_opened.svg"
       },
       "e2e": {
         "closed": "./icons/folder_type_e2e.svg",
@@ -9371,10 +9125,6 @@
         "closed": "./icons/folder_type_junie.svg",
         "opened": "./icons/folder_type_junie_opened.svg"
       },
-      ".kadence": {
-        "closed": "./icons/folder_type_kadence.svg",
-        "opened": "./icons/folder_type_kadence_opened.svg"
-      },
       ".kiro": {
         "closed": "./icons/folder_type_kiro.svg",
         "opened": "./icons/folder_type_kiro_opened.svg"
@@ -9546,10 +9296,6 @@
       "loggers": {
         "closed": "./icons/folder_type_log.svg",
         "opened": "./icons/folder_type_log_opened.svg"
-      },
-      "lua": {
-        "closed": "./icons/folder_type_lua.svg",
-        "opened": "./icons/folder_type_lua_opened.svg"
       },
       "macos": {
         "closed": "./icons/folder_type_macos.svg",
@@ -9859,18 +9605,6 @@
         "closed": "./icons/folder_type_private.svg",
         "opened": "./icons/folder_type_private_opened.svg"
       },
-      "protobuf": {
-        "closed": "./icons/folder_type_protobuf.svg",
-        "opened": "./icons/folder_type_protobuf_opened.svg"
-      },
-      "proto": {
-        "closed": "./icons/folder_type_protobuf.svg",
-        "opened": "./icons/folder_type_protobuf_opened.svg"
-      },
-      "protos": {
-        "closed": "./icons/folder_type_protobuf.svg",
-        "opened": "./icons/folder_type_protobuf_opened.svg"
-      },
       "public": {
         "closed": "./icons/folder_type_public.svg",
         "opened": "./icons/folder_type_public_opened.svg"
@@ -10022,22 +9756,6 @@
       "__share__": {
         "closed": "./icons/folder_type_shared.svg",
         "opened": "./icons/folder_type_shared_opened.svg"
-      },
-      ".skills": {
-        "closed": "./icons/folder_type_light_skill.svg",
-        "opened": "./icons/folder_type_light_skill_opened.svg"
-      },
-      ".skill": {
-        "closed": "./icons/folder_type_light_skill.svg",
-        "opened": "./icons/folder_type_light_skill_opened.svg"
-      },
-      "skills": {
-        "closed": "./icons/folder_type_light_skill.svg",
-        "opened": "./icons/folder_type_light_skill_opened.svg"
-      },
-      "skill": {
-        "closed": "./icons/folder_type_light_skill.svg",
-        "opened": "./icons/folder_type_light_skill_opened.svg"
       },
       "slackware": {
         "closed": "./icons/folder_type_slackware.svg",

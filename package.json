@@ -1,7 +1,7 @@
 {
   "name": "@vscode-icons/vscode-icons-api",
   "description": "Resolve bundled vscode-icons file and folder icons from Node.js.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "author": {
     "name": "Dimitris \"Jimi\" Charalampidis",

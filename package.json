@@ -62,7 +62,7 @@
     "prepare": "husky",
     "reinstall": "rimraf ./package-lock.json ./node_modules && npm i",
     "pretest": "npm run build:dev",
-    "test": "nyc mocha",
+    "test": "nyc --reporter=none mocha && nyc report",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {

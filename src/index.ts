@@ -1,5 +1,3 @@
-import { ok } from 'node:assert/strict';
-
 import apiManifest from '#api-json/v1' with { type: 'json' };
 
 //#region exported typings
@@ -50,10 +48,9 @@ export interface ApiIconFolderDefinitions {
 //#endregion
 
 function assert(name: unknown): void {
-  ok(
-    typeof name === 'string' && name.trim() !== '',
-    new TypeError('missing required parameter: "name"'),
-  );
+  if (typeof name !== 'string' || name.trim() === '') {
+    throw new TypeError('missing required parameter: "name"');
+  }
 }
 
 function getIconPath(filePath: string, includePath: boolean): string {

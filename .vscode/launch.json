@@ -17,8 +17,7 @@
       "name": "Debug Tests",
       "type": "node",
       "request": "launch",
-      "program": "${workspaceFolder}/test/index.ts",
-      "args": ["${workspaceFolder}/test"],
+      "args": ["--test"],
       "console": "internalConsole",
       "stopOnEntry": false
     },

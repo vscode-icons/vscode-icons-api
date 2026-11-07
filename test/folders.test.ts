@@ -5,7 +5,8 @@ import type {
   Theme,
 } from '../src/index.ts';
 
-import { expect } from 'chai';
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
 
 import { getFolderIcon } from '../src/index.ts';
 
@@ -28,25 +29,27 @@ function iconFilename(iconPath: string): string {
   return iconPath.slice(separatorIndex + 1);
 }
 
-describe('getFolderIcon', function () {
+void describe('getFolderIcon', function () {
   for (const theme of themes) {
     const definitions = folderDefinitions[theme];
 
-    context(`for the ${theme} theme`, function () {
+    void describe(`for the ${theme} theme`, function () {
       for (const [name, stateIcons] of Object.entries(definitions)
         .filter(([folderName]) => folderName !== '_default')
         .slice(0, 5)) {
         for (const state of states) {
-          it(`resolves '${name}' (${state}) to an icon`, function () {
+          void it(`resolves '${name}' (${state}) to an icon`, function () {
             const iconPath =
               stateIcons[state] ||
               definitions._default[state] ||
               iconsApi.folders._default[state];
 
-            expect(
+            assert.equal(
               getFolderIcon(name, { theme, state, includePath: true }),
-            ).to.equal(iconPath);
-            expect(getFolderIcon(name, { theme, state })).to.equal(
+              iconPath,
+            );
+            assert.equal(
+              getFolderIcon(name, { theme, state }),
               iconFilename(iconPath),
             );
           });
@@ -67,29 +70,29 @@ describe('getFolderIcon', function () {
 
         for (const variation of variations) {
           for (const state of states) {
-            it(`resolves '${variation}' like '${name}' (${state}) to an icon`, function () {
+            void it(`resolves '${variation}' like '${name}' (${state}) to an icon`, function () {
               const iconPath =
                 stateIcons[state] ||
                 definitions._default[state] ||
                 iconsApi.folders._default[state];
 
-              expect(
+              assert.equal(
                 getFolderIcon(variation, { theme, state, includePath: true }),
-              ).to.equal(iconPath);
+                iconPath,
+              );
             });
           }
         }
       }
 
-      it('uses the theme default for an unknown folder', function () {
+      void it('uses the theme default for an unknown folder', function () {
         for (const state of states) {
-          expect(
+          assert.equal(
             getFolderIcon('__unmapped_folder__', {
               theme,
               state,
               includePath: true,
             }),
-          ).to.equal(
             definitions._default[state] || iconsApi.folders._default[state],
           );
         }
@@ -97,18 +100,19 @@ describe('getFolderIcon', function () {
     });
   }
 
-  it('defaults to the dark theme and closed state', function () {
-    expect(getFolderIcon('__unmapped_folder__')).to.equal(
+  void it('defaults to the dark theme and closed state', function () {
+    assert.equal(
+      getFolderIcon('__unmapped_folder__'),
       iconFilename(iconsApi.folders._default.closed),
     );
   });
 
   for (const name of ['', ' ', '\t\n', undefined, null]) {
-    it(`rejects an invalid 'name' of value: '${String(name)}'`, function () {
-      expect(() => getFolderIcon(name as string)).to.throw(
-        TypeError,
-        'missing required parameter: "name"',
-      );
+    void it(`rejects an invalid 'name' of value: '${String(name)}'`, function () {
+      assert.throws(() => getFolderIcon(name as string), {
+        name: 'TypeError',
+        message: 'missing required parameter: "name"',
+      });
     });
   }
 });

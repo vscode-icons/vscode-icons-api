@@ -4,7 +4,8 @@ import type {
   Theme,
 } from '../src/index.ts';
 
-import { expect } from 'chai';
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
 
 import { getFileIcon } from '../src/index.ts';
 
@@ -26,22 +27,21 @@ function iconFilename(iconPath: string): string {
   return iconPath.slice(separatorIndex + 1);
 }
 
-describe('getFileIcon', function () {
+void describe('getFileIcon', function () {
   for (const theme of themes) {
     const definitions: ApiIconFileDefinitions = fileDefinitions[theme];
 
-    context(`for the ${theme} theme`, function () {
-      context('filename mappings', function () {
+    void describe(`for the ${theme} theme`, function () {
+      void describe('filename mappings', function () {
         for (const [name, iconPath] of Object.entries(
           definitions.filenames,
         ).slice(0, 5)) {
-          it(`resolves '${name}' to an icon`, function () {
-            expect(getFileIcon(name, { theme, includePath: true })).to.equal(
+          void it(`resolves '${name}' to an icon`, function () {
+            assert.equal(
+              getFileIcon(name, { theme, includePath: true }),
               iconPath,
             );
-            expect(getFileIcon(name, { theme })).to.equal(
-              iconFilename(iconPath),
-            );
+            assert.equal(getFileIcon(name, { theme }), iconFilename(iconPath));
           });
         }
 
@@ -56,16 +56,17 @@ describe('getFileIcon', function () {
           ].filter(variation => !(variation in definitions.filenames));
 
           for (const variation of variations) {
-            it(`resolves '${variation}' like '${name}' to an icon`, function () {
-              expect(
+            void it(`resolves '${variation}' like '${name}' to an icon`, function () {
+              assert.equal(
                 getFileIcon(variation, { theme, includePath: true }),
-              ).to.equal(iconPath);
+                iconPath,
+              );
             });
           }
         }
       });
 
-      context('extension mappings', function () {
+      void describe('extension mappings', function () {
         const extensions = Object.entries(definitions.extensions);
         const overlappingExtension = extensions.find(([extension]) =>
           extensions.some(
@@ -79,25 +80,24 @@ describe('getFileIcon', function () {
           ...extensions.slice(0, 4),
           overlappingExtension,
         ]) {
-          it(`resolves '.${extension}' to an icon`, function () {
+          void it(`resolves '.${extension}' to an icon`, function () {
             const name = `sample.${extension}`;
             const matchingExtensions = Object.entries(definitions.extensions)
               .filter(([candidate]) => name.endsWith(`.${candidate}`))
               .sort(([left], [right]) => right.length - left.length);
             const iconPath = matchingExtensions[0]?.[1];
 
-            expect(iconPath).to.not.be.undefined;
-            expect(getFileIcon(name, { theme, includePath: true })).to.equal(
+            assert.ok(iconPath !== undefined);
+            assert.equal(
+              getFileIcon(name, { theme, includePath: true }),
               iconPath,
             );
-            expect(getFileIcon(name, { theme })).to.equal(
-              iconFilename(iconPath!),
-            );
+            assert.equal(getFileIcon(name, { theme }), iconFilename(iconPath));
           });
         }
       });
 
-      it('prefers an exact filename over its extension mapping', function () {
+      void it('prefers an exact filename over its extension mapping', function () {
         const match = Object.entries(definitions.filenames).find(
           ([name, iconPath]) =>
             Object.entries(definitions.extensions).some(
@@ -106,15 +106,13 @@ describe('getFileIcon', function () {
             ),
         );
 
-        expect(match, 'an overlapping filename mapping').to.not.be.undefined;
-        const [name, iconPath] = match!;
+        assert.ok(match, 'an overlapping filename mapping');
+        const [name, iconPath] = match;
 
-        expect(getFileIcon(name, { theme, includePath: true })).to.equal(
-          iconPath,
-        );
+        assert.equal(getFileIcon(name, { theme, includePath: true }), iconPath);
       });
 
-      it('uses the longest matching extension', function () {
+      void it('uses the longest matching extension', function () {
         const match = Object.entries(definitions.extensions)
           .flatMap(([shortExtension, shortPath]) =>
             Object.entries(definitions.extensions)
@@ -131,36 +129,39 @@ describe('getFileIcon', function () {
           )
           .sort((left, right) => right.name.length - left.name.length)[0];
 
-        expect(match, 'overlapping extension mappings').to.not.be.undefined;
+        assert.ok(match, 'overlapping extension mappings');
 
-        expect(getFileIcon(match!.name, { theme, includePath: true })).to.equal(
-          match!.iconPath,
+        assert.equal(
+          getFileIcon(match.name, { theme, includePath: true }),
+          match.iconPath,
         );
       });
 
-      it('uses the theme default when no mapping matches', function () {
-        expect(
+      void it('uses the theme default when no mapping matches', function () {
+        assert.equal(
           getFileIcon('__unmapped_filename__', {
             theme,
             includePath: true,
           }),
-        ).to.equal(definitions._default || iconsApi.files._default);
+          definitions._default || iconsApi.files._default,
+        );
       });
     });
   }
 
-  it('defaults to the dark theme and excludes the icon path', function () {
-    expect(getFileIcon('__unmapped_filename__')).to.equal(
+  void it('defaults to the dark theme and excludes the icon path', function () {
+    assert.equal(
+      getFileIcon('__unmapped_filename__'),
       iconFilename(iconsApi.files._default),
     );
   });
 
   for (const name of ['', ' ', '\t\n', undefined, null]) {
-    it(`rejects an invalid 'name' of value: '${String(name)}'`, function () {
-      expect(() => getFileIcon(name as string)).to.throw(
-        TypeError,
-        'missing required parameter: "name"',
-      );
+    void it(`rejects an invalid 'name' of value: '${String(name)}'`, function () {
+      assert.throws(() => getFileIcon(name as string), {
+        name: 'TypeError',
+        message: 'missing required parameter: "name"',
+      });
     });
   }
 });

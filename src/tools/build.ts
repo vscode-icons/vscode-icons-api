@@ -3,6 +3,7 @@ import type { Config } from 'ts-json-schema-generator';
 
 import { writeFile } from 'node:fs/promises';
 import { posix } from 'node:path';
+import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import { createGenerator } from 'ts-json-schema-generator';
@@ -33,4 +34,7 @@ async function generateApiJsonSchema(argv: string[]): Promise<void> {
   }
 }
 
-void generateApiJsonSchema(process.argv);
+void generateApiJsonSchema(process.argv).catch((error: unknown): void => {
+  console.error(error);
+  process.exitCode = 1;
+});

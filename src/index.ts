@@ -138,9 +138,5 @@ export function getFolderIcon(
     themeIcons._default?.[state] ||
     apiManifest.folders._default?.[state];
 
-  if (filenamePath === undefined) {
-    throw new Error(`No default folder icon for state "${state}"`);
-  }
-
   return getIconPath(filenamePath, includePath);
 }

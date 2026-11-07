@@ -102,7 +102,7 @@ jobs:
         node:
           - 26.x # latest LTS
           - 24.x
-          - &minimum-lts-node 22.x
+          - &minimum-lts-node 22.18
         arch:
           - x64
         experimental:

@@ -6,7 +6,7 @@
 
 <p>
   <a href="https://www.npmjs.com/package/@vscode-icons/vscode-icons-api"><img alt="npm version" src="https://img.shields.io/npm/v/%40vscode-icons/vscode-icons-api"></a>
-  <a href="https://nodejs.org/"><img alt="Node.js 22 or later" src="https://img.shields.io/badge/Node.js-%3E%3D22-339933?logo=node.js&amp;logoColor=white"></a>
+  <a href="https://nodejs.org/"><img alt="Node.js 22.18 or later" src="https://img.shields.io/badge/Node.js-%3E%3D22.18-339933?logo=node.js&amp;logoColor=white"></a>
   <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
 </p>
 

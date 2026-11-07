@@ -106,7 +106,9 @@ export default defineConfig(
     ],
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ['test/min-reporter.ts'],
+        },
       },
     },
     rules: {

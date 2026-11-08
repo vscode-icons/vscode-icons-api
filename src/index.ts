@@ -104,8 +104,9 @@ export function getFileIcon(name: string, options?: ApiFileOptions): string {
   // then theme default,
   // then the base default (dark)
   const filenamePath: string =
-    themeIcons.filenames[name] ||
-    themeIcons.filenames[normalizedName] ||
+    (Object.hasOwn(themeIcons.filenames, name) && themeIcons.filenames[name]) ||
+    (Object.hasOwn(themeIcons.filenames, normalizedName) &&
+      themeIcons.filenames[normalizedName]) ||
     getExtensionIcon(themeIcons.extensions) ||
     themeIcons._default ||
     apiManifest.files._default;
@@ -133,8 +134,9 @@ export function getFolderIcon(
   // then the theme default and state,
   // then the base default (dark) and state
   const filenamePath: string =
-    themeIcons[name]?.[state] ||
-    themeIcons[normalizedName]?.[state] ||
+    (Object.hasOwn(themeIcons, name) && themeIcons[name]?.[state]) ||
+    (Object.hasOwn(themeIcons, normalizedName) &&
+      themeIcons[normalizedName]?.[state]) ||
     themeIcons._default?.[state] ||
     apiManifest.folders._default?.[state];
 

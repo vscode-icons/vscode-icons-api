@@ -156,6 +156,15 @@ void describe('getFileIcon', function () {
     );
   });
 
+  void it('ignores inherited filename mappings', function () {
+    for (const name of ['constructor', 'toString', '__proto__']) {
+      assert.equal(
+        getFileIcon(name, { includePath: true }),
+        iconsApi.files._default,
+      );
+    }
+  });
+
   for (const name of ['', ' ', '\t\n', undefined, null]) {
     void it(`rejects an invalid 'name' of value: '${String(name)}'`, function () {
       assert.throws(() => getFileIcon(name as string), {

@@ -107,6 +107,49 @@ void describe('getFolderIcon', function () {
     );
   });
 
+  void it('ignores inherited folder mappings', function () {
+    const originalClosed = Object.getOwnPropertyDescriptor(
+      Object.prototype,
+      'closed',
+    );
+    const originalOpened = Object.getOwnPropertyDescriptor(
+      Object.prototype,
+      'opened',
+    );
+
+    Object.defineProperty(Object.prototype, 'closed', {
+      configurable: true,
+      value: 'polluted-closed.svg',
+    });
+    Object.defineProperty(Object.prototype, 'opened', {
+      configurable: true,
+      value: 'polluted-opened.svg',
+    });
+
+    try {
+      for (const name of ['constructor', 'toString', '__proto__']) {
+        for (const state of states) {
+          assert.equal(
+            getFolderIcon(name, { state, includePath: true }),
+            iconsApi.folders._default[state],
+          );
+        }
+      }
+    } finally {
+      if (originalClosed) {
+        Object.defineProperty(Object.prototype, 'closed', originalClosed);
+      } else {
+        Reflect.deleteProperty(Object.prototype, 'closed');
+      }
+
+      if (originalOpened) {
+        Object.defineProperty(Object.prototype, 'opened', originalOpened);
+      } else {
+        Reflect.deleteProperty(Object.prototype, 'opened');
+      }
+    }
+  });
+
   for (const name of ['', ' ', '\t\n', undefined, null]) {
     void it(`rejects an invalid 'name' of value: '${String(name)}'`, function () {
       assert.throws(() => getFolderIcon(name as string), {

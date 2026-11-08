@@ -64,22 +64,6 @@
     "test": "c8 --reporter=none node --test --experimental-default-config-file --test-timeout=15000 && c8 report",
     "prepublishOnly": "npm run build"
   },
-  "c8": {
-    "reporter": [
-      "text-summary",
-      "lcov"
-    ],
-    "all": true,
-    "include": [
-      "src/**/*.ts"
-    ],
-    "check-coverage": true,
-    "per-file": true,
-    "branches": 100,
-    "functions": 100,
-    "lines": 100,
-    "statements": 100
-  },
   "devDependencies": {
     "@eslint/js": "^10.0.0",
     "@types/node": "~22.18.0",
